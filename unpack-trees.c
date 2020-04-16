@@ -355,7 +355,6 @@ static void setup_collided_checkout_detection(struct checkout *state,
 {
 	int i;
 
-	state->clone = 1;
 	for (i = 0; i < index->cache_nr; i++)
 		index->cache[i]->ce_flags &= ~CE_MATCHED;
 }
@@ -412,8 +411,7 @@ static int check_updates(struct unpack_trees_options *o,
 		return 0;
 	}
 
-	if (o->clone)
-		setup_collided_checkout_detection(&state, index);
+	setup_collided_checkout_detection(&state, index);
 
 	progress = get_progress(o, index);
 

@@ -497,8 +497,7 @@ int checkout_entry(struct cache_entry *ce, const struct checkout *state,
 			return -1;
 		}
 
-		if (state->clone)
-			mark_colliding_entries(state, ce, &st);
+		mark_colliding_entries(state, ce, &st);
 
 		/*
 		 * We unlink the old file, to get the new one with the
