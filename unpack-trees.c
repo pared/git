@@ -474,8 +474,7 @@ static int check_updates(struct unpack_trees_options *o,
 	errs |= finish_delayed_checkout(&state, NULL);
 	git_attr_set_direction(GIT_ATTR_CHECKIN);
 
-	if (o->clone)
-		report_collided_checkout(index);
+	report_collided_checkout(index);
 
 	trace_performance_leave("check_updates");
 	return errs != 0;
